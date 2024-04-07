@@ -8,7 +8,7 @@ KitchenCode marries the process of cooking with programming. Ingredients represe
 
 ## Implementation
 
-The language is implemented using Racket, a dialect of the Scheme programming language. It leverages Racket's `parser-tools/lex` and `parser-tools/yacc` for lexical analysis and parsing, respectively. KitchenCode's lexer recognizes cooking-related terms as tokens, and its parser assigns functional meanings to these tokens, effectively translating "recipes" into executable programs.
+The language is implemented using Racket. It leverages Racket's `parser-tools/lex` and `parser-tools/yacc` for lexical analysis and parsing, respectively. KitchenCode's lexer recognizes cooking-related terms as tokens, and its parser assigns functional meanings to these tokens, effectively translating "recipes" into executable programs.
 
 ### Lexer and Tokens
 
