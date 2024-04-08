@@ -100,23 +100,13 @@
     (eval parsed)))
 
 ; Example tests
-(display (kitchen-code-evaluate "chop 10"))  ; Should return 5
-(newline)
-(display (kitchen-code-evaluate "mix 5 3"))  ; Should return 8
-(newline)
-(display (kitchen-code-evaluate "peel 5"))   ; Should return 4
-(newline)
-(display (kitchen-code-evaluate "whisk 3 4")) ; Should return 12
-(newline)
-(display (kitchen-code-evaluate "bake chop 10 1")) ; should return 5
-(newline)
-(display (kitchen-code-evaluate "bake peel 10 3")) ; should return 7
-(newline)
-(display (kitchen-code-evaluate "bake mix 10 3 1")) ; should return 13
-(newline)
-(display (kitchen-code-evaluate "bake whisk 10 2 1")) ; should return 20
-(newline)
-; New feature tests
-(display (kitchen-code-evaluate "taste-eq chop 10 mix 5 5 whisk 3 4 mix 5 5")) ; Should execute and return the result of whisk 3 4 if true, else result of mix 5 5
-(newline)
-(display (kitchen-code-evaluate "taste-gt chop 20 5 peel 2 mix 1 1")) ; Should execute and return the result of peel 2 if true, else result of mix 1 1
+(kitchen-code-evaluate "chop 10")  ; Should return 5
+(kitchen-code-evaluate "mix 5 3")  ; Should return 8
+(kitchen-code-evaluate "peel 5")   ; Should return 4
+(kitchen-code-evaluate "whisk 3 4") ; Should return 12
+(kitchen-code-evaluate "bake chop 10 1") ; should return 5
+(kitchen-code-evaluate "bake peel 10 3") ; should return 7
+(kitchen-code-evaluate "bake mix 10 3 1") ; should return 13
+(kitchen-code-evaluate "bake whisk 10 2 1") ; should return 20
+(kitchen-code-evaluate "taste-eq chop 10 mix 5 5 whisk 3 4 mix 5 5") ; Should execute and return the result of whisk 3 4 if true, else result of mix 5 5
+(kitchen-code-evaluate "taste-gt chop 20 5 peel 2 mix 1 1") ; Should execute and return the result of peel 2 if true, else result of mix 1 1
