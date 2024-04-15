@@ -55,7 +55,7 @@ This function will parse and execute the commands in the file, displaying the re
 
 ### Example Script
 
-Here is a sample script that demonstrates various features of KitchenLang (the semicolons are there for this readme and are not part of the labnguage yet):
+Here is a sample script that demonstrates various features of KitchenLang (the semicolons are there for this readme and are not part of the language yet):
 ```racket
 pour x 20
 pour y 5
