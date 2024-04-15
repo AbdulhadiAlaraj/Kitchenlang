@@ -1,44 +1,81 @@
-# KitchenCode Programming Language
+# KitchenLang
 
-KitchenCode is a unique, esoteric programming language inspired by the art of cooking. It turns culinary actions and ingredients into programming constructs, creating a flavorful blend of coding and cooking. In KitchenCode, traditional programming concepts are expressed through cooking-related terms, allowing for a delightful and intuitive programming experience.
+## Introduction
 
-## Concept
+**KitchenLang** is a domain-specific language (DSL) developed in Racket, designed to simulate kitchen operations such as chopping, mixing, and whisking in a programming context. This language allows users to perform arithmetic and logical operations through a culinary-themed metaphor, handling variables and expressions in a fun and intuitive way.
 
-KitchenCode marries the process of cooking with programming. Ingredients represent data, while cooking processes translate into commands that manipulate this data. For example, `chop` is used to divide data, `mix` combines variables, and `bake` executes loops, introducing a playful yet practical approach to coding.
+## Installation
 
-## Implementation
+To get started with KitchenLang, you must first install Racket, which can be downloaded from the Racket website:
 
-The language is implemented using Racket. It leverages Racket's `parser-tools/lex` and `parser-tools/yacc` for lexical analysis and parsing, respectively. KitchenCode's lexer recognizes cooking-related terms as tokens, and its parser assigns functional meanings to these tokens, effectively translating "recipes" into executable programs.
+- Download Racket from [https://racket-lang.org](https://racket-lang.org).
 
-### Lexer and Tokens
+After installing Racket, you can run KitchenLang scripts either through the DrRacket IDE or VSCode.
 
-KitchenCode defines two sets of tokens: ingredients and actions. Ingredients are numeric values, while actions include `CHOP`, `MIX`, `BAKE`, `PEEL`, `WHISK`, `TASTE-EQ`, and `TASTE-GT`, each corresponding to a specific operation in the language.
+## Writing KitchenLang Scripts
 
-### Parser and Grammar
+KitchenLang scripts are composed of commands that resemble kitchen operations. Here are the basic constructs and syntax rules you need to know:
 
-The parser defines the grammar of KitchenCode, mapping sequences of tokens to expressions. These expressions represent the operations to be performed on the ingredients, supporting basic arithmetic and conditional execution based on comparisons.
+### Variables and Assignments
 
-### Evaluation Function
+- **Variables:** Use the `pour` command to assign values to variables.
+  - Example: `pour x 10` assigns the value `10` to the variable `x`.
+  - You can also assign the result of an expression: `pour y mix x x` which assigns the result of `mix x x` to `y`.
 
-An evaluation function interprets the parsed expressions, executing the defined operations. This function supports arithmetic operations, conditional execution, and looping constructs, all within the culinary-themed syntax of KitchenCode.
+### Operations
 
-## Usage
+- **Chop:** Halves the value of a variable or a number.
+  - Syntax: `chop x` where `x` can be a number or a variable.
+- **Mix:** Adds two values.
+  - Syntax: `mix x y` adds the values of `x` and `y`.
+- **Peel:** Decreases the value by 1.
+  - Syntax: `peel x` decrements `x` by 1.
+- **Whisk:** Multiplies two values.
+  - Syntax: `whisk x y` multiplies `x` by `y`.
 
-To run a KitchenCode program, write your code as a string that follows the language's syntax and pass it to the `kitchen-code-evaluate` function. This function parses and evaluates the code, executing the culinary-themed operations defined in your program.
+### Conditional Statements
 
-### Example Programs
+- **Taste Conditions:** Compare values and perform operations based on comparisons.
+  - `taste-eq x y do-this else-do-this`: Executes `do-this` if `x` equals `y`, otherwise executes `else-do-this`.
+  - `taste-gt` and `taste-lt` work similarly for greater than and less than comparisons.
 
-Below are some example KitchenCode programs and their outputs:
+### Loops
 
-- `chop 10` divides the ingredient (10) by 2, resulting in 5.
-- `mix 5 3` combines the ingredients (5 and 3), resulting in 8.
-- `peel 5` subtracts 1 from the ingredient (5), resulting in 4.
-- `whisk 3 4` multiplies the ingredients (3 and 4), resulting in 12.
-- `bake chop 10 1` performs the `chop` operation on the ingredient (10) one time, resulting in 5.
-- `bake peel 10 3` performs the `peel` operation on the ingredient (10) three times, resulting in 7.
-- `bake mix 10 3 1` combines the ingredients (10 and 3) one time, resulting in 13.
-- `bake whisk 10 2 1` multiplies the ingredients (10 and 2) one time, resulting in 20.
-- `taste-eq chop 10 mix 5 5 whisk 3 4 mix 5 5` evaluates the equality of `chop 10` and `mix 5 5`, executing `whisk 3 4` if true, else `mix 5 5`.
-- `taste-gt chop 20 5 peel 2 mix 1 1` evaluates if `chop 20` is greater than 5, executing `peel 2` if true, else `mix 1 1`.
+- **Bake:** Repeats an operation a specified number of times.
+  - Syntax: `bake mix x y 3` which will execute `mix x y` three times.
 
-KitchenCode offers a fresh and engaging way to learn programming concepts, bringing the creativity and experimentation of cooking into the world of code. Bon appétit!
+## Running KitchenLang Scripts
+
+To run a KitchenLang script, you need to use the `kitchen-code-evaluate` function provided within your Racket script. Here's how to execute a file named `example.kcl`:
+
+```racket
+(kitchen-code-evaluate "example.kcl")
+```
+This function will parse and execute the commands in the file, displaying the results of each operation.
+
+### Example Script
+
+Here is a sample script that demonstrates various features of KitchenLang (the semicolons are there for this readme and are not part of the labnguage yet):
+```racket
+pour x 20
+pour y 5
+
+; Perform operations
+chop x
+mix x y
+peel y
+whisk x y
+
+; Conditional operation
+taste-eq x y chop x peel y
+
+; Looping operation
+bake mix x y 2
+```
+## Debugging and Output
+
+Each operation in the script prints the outcome to the console, helping you trace and debug the flow of operations and their results.
+
+## License
+
+This project is licensed under the MIT License.
